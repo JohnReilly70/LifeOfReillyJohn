@@ -20,14 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('/home/johnreilly/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = '%mkd)$g61*&a6cawn!!d#w3vf#&zu^lh48d^y4%8-urt3z0ujt'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'johnreilly.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'LifeOfReillyJohnApp.apps.LifeofreillyjohnappConfig',
     'tinymce',
 ]
 
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'LifeOfReillyJohn.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [u'/home/johnreilly/LifeOfReillyJohn/templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,9 +124,9 @@ STATIC_URL = '/static/'
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/johnreilly/LifeOfReillyJohn/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/johnreilly/LifeOfReillyJohn/static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 
