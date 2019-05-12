@@ -1,41 +1,9 @@
+{% extends "LifeOfReillyApp/base.html" %}
 {% load staticfiles %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Life Of Reilly John </title>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="apple-touch-icon" sizes="180x180" href= "{% static 'LifeOfReillyJohnApp/images/apple-touch-icon.png' %}">
-	<link rel="icon" type="image/png" sizes="32x32" href= "{% static 'LifeOfReillyJohnApp/images/favicon-32x32.png' %}">
-	<link rel="icon" type="image/png" sizes="16x16" href= "{% static 'LifeOfReillyJohnApp/images/favicon-16x16.png' %}" >
-	<link rel="manifest" href= "{% static 'LifeOfReillyJohnApp/images/site.webmanifest">
-	
-	<link rel="stylesheet" href="{% static 'LifeOfReillyJohnApp/css/style.css' %}">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Special+Elite" rel="stylesheet">
-
-	
-</head>
-<body>
+{% block content %}
 
 
 
-<div id="topheader" class="container fixed-top">
-	<nav class="navbar navbar-expand-lg navbar-light bg-success">
-		<a class="navbar-brand" href="#">Life Of Reilly John</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="#About-Me">Career</a>
-				<a class="nav-item nav-link" href="#Interests">Interests</a>
-			</div>
-		</div>
-	</nav>
-</div>
 
 
 
@@ -166,29 +134,4 @@
 	</div>
 </div>
 
-
-<div class="container footer">
-	<footer class="page-footer font-small blue">
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    <a href="#">Life Of Reilly John &trade; </a>
-  </div>
-  <!-- Copyright -->
-
-</footer>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<!-- Optional JavaScript -->
-<script src="{% static 'LifeOfReillyJohnApp/js/script.js' %}"></script>
-
-
-
-<script>confirm("Python Anywhere recently updated to Python 3.7 which crashed my previous website and I'm still currently trying to get it back up and running.\n\nSorry about this but please continue into my website.\n\n");</script>
-</body>
-</html>
+{% endblock %}

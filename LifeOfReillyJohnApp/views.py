@@ -4,5 +4,5 @@ from django.shortcuts import render
 
 def home(request):
    return render(request=request,
-              template_name="home.html",
+              template_name="LifeOfReillyApp/home.html",
               )
