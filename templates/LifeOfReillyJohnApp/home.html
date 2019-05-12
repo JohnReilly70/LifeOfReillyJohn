@@ -1,0 +1,139 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+
+
+
+
+<div id="Home" class="container">
+	<div class="row">
+		<div class="col-md-4 offset-md-1">
+			<img src="{% static 'LifeOfReillyJohnApp/images/jr.jpg' %}"  class="bungee img-fluid rounded zoom" alt="Responsive image"/>
+		</div>
+		<div class="col-md-6 offset-md-1">
+			<h1>Welcome!</h1><br>
+			<h2>I'm John Reilly </h2>
+			<p>Hi, my name is John Reilly and I hold a MEng with distinction in Electronic and Electrical Engineering from Strathclyde University.</p>
+			<h3>Looking for the next step in my career</h3>
+		</div>
+	</div>
+</div>
+
+<div class="container " id="About-Me">
+	<div class="container">
+		<div class="row">
+			<div class="offset-md-1">
+				<h2 class="text-left">Career</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 offset-md-1 career">
+			<h3>Control & Instrument Engineer</h3>
+			<p>
+				As an Oil & Gas Instrument Engineer, I completed the follow tasks on projects. Create estimate budgets
+				(Cost Time Reviews), material requisitions, datasheets for equipment, scopes of work for third-party
+				vendors and vendor documentation requirement lists (ATEX, ISO 9001, NACE, etc). I also surveyed client
+				sites and generated reports on feasibility of projects, reviewed and approved vendor documentation,
+				attended and approved factory acceptance tests, liaised with vendors as well as other clients and
+				engineering disciplines. I worked on projects from kick-off all the way through to commissioning.
+			</p>
+			<p>
+				I worked on BP Category C projects which are within the range of $10-15 million on brown field assets
+				such as Clair, Clair Ridge, Mungo, ETAP & Andrew. Working with BP has given me opportunities to travel
+				for work to the Shetlands and offshore platforms. It has also allowed me to give presentations in BP
+				headquarters on the design and planning of projects. I am most of proud of being able to use my
+				knowledge of photonic networks to reassure BP on the advantages and reliability of optical networks
+				for a new down well acoustic and temperature sensing system. This system will provide BP with reliable
+				and accurate data on the health of each individual well on the Clair platform.
+			</p>
+		</div>
+		<div class="col-md-5 programming">
+			<h3>Electrical & Software Engineer</h3>
+			<p>
+				I designed, built and tested electronics in the leading technology of resonant cavity infrared detectors,
+				which are used by clients in military, security, environmental & industrial sectors. This is achieved by
+				collaborating with clients & wafer production team to determine specifications. Once specifications are
+				defined, I begin designing circuit diagrams, schematics & 3D models. I would assemble the electronics
+				and test them to ensure it met specification. As the lead electrical engineer in the UK office,
+				I built the electrical laboratory from scratch, purchasing all equipment (SMD/THT components, soldering
+				station, power supplies, oscilloscopes, safety & anti-static equipment).
+			</p>
+			<p>
+				Another facet of my position was to maintain software within the company. I oversaw the addition and
+				maintenance of files for the PCB design package KiCAD. I have also taken on the responsibility of
+				redesigning both the UK and USA websites. In doing so I have liaised with web hosts, domain registrars &
+				third-party consultants. The website has already brought new clients and praise from existing clients.
+				Additionally, I set up new employee email accounts, as well as managing the customer enquiries mail box.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="container" id="Interests">
+	<div class="container">
+		<div class="row">
+			<div class="offset-md-1">
+				<h2 class="text-left">Interests</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5 offset-md-1 career">
+			<h3>Raspberry Pi Scrolling Display</h3>
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="https://youtube.com/embed/ztZR_FCrSu4" allowfullscreen></iframe>
+			</div>
+			<p>
+				I created a scrolling display (just like the train platform signs) using a Raspberry Pi B+ with Pi HAT.
+				The Pi HAT was a UnicornHAT which is an 8x8, 3 colour LED Matrix. The allows user to enter any length
+				of text which will loop indefinitely. This involved creating 8x8 alphabet characters and creating a
+				character library which is a simple nested python dictionary with the co-ordinates for the character
+				and the width of the character. The width is required to allow for correct spacing between letters,
+				as all characters are not equal length. The above video is an example of it working displaying “Johns
+				UnicornHAT Scrolling Display”.
+			</p>
+			<p>
+				The code can be found in my <a href="https://github.com/JohnReilly70/UnicornHat_CustomWordSign">GitHub</a> Repository.
+			</p>
+			
+		</div>
+		<div class="col-md-5 programming">
+			<h3>Python Weather App</h3>
+			<a href="https://twitter.com/weather_in_glw?lang=en">
+				<img src="{% static 'LifeOfReillyJohnApp/images/Weather_In_GLW.jpg' %}" class="img-fluid rounded  zoom" alt="Responsive image">
+			</a>
+			<p>
+				The Weather App automatically generates a graphical representation of the temperatures for a chosen
+				location for the up coming 5 days. The program uses the Open Weather Map API to receive the data.
+				It manipulates the data using pandas, Matplot, DateTime and outputs a .JPG of the graph which is then
+				tweeted out using the TwitterAPI. This App is currently being ran on a cron job daily at 7am GMT on the
+				same server this website is ran on.
+			</p>
+			<p>
+				The code can be found in my <a href="https://github.com/JohnReilly70/Twitter-Weather-App">GitHub</a> Repository.
+			</p>
+		</div>
+		<div class="col-md-5 offset-md-1 programming">
+			<h3>Building An Arcade Fight Stick</h3>
+			<img src="{% static 'LifeOfReillyJohnApp/images/arcade.jpg' %}" class="img-fluid rounded zoom" alt="Responsive image">
+			
+			<p>
+				The Weather App automatically generates a graphical representation of the temperatures for a chosen
+				location for the up coming 5 days. The program uses the Open Weather Map API to receive the data.
+				It manipulates the data using pandas, Matplot, DateTime and outputs a .JPG of the graph which is then
+				tweeted out using the TwitterAPI. This App is currently being ran on a cron job daily at 7am GMT on the
+				same server this website is ran on.
+			</p>
+			
+		</div>
+	</div>
+</div>
+
+<script>confirm("Python Anywhere recently updated to Python 3.7 which crashed my previous website and I'm still currently trying to get it back up and running.\n\nSorry about this but please continue into my website.\n\n");</script>
+
+{% endblock %}

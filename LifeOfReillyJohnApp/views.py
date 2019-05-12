@@ -4,5 +4,11 @@ from django.shortcuts import render
 
 def home(request):
    return render(request=request,
-              template_name="LifeOfReillyApp/home.html",
+              template_name="LifeOfReillyJohnApp/home.html",
+              )
+
+
+def PassGen(request):
+   return render(request=request,
+              template_name="LifeOfReillyJohnApp/PassGen.html",
               )

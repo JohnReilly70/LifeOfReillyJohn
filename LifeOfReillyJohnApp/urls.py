@@ -4,5 +4,7 @@ from . import views
 app_name = "LifeOfReillyJohnApp"
 
 urlpatterns = [
-    path("", views.home, name="homepage"),
+    path("PassGen/", views.PassGen, name="PassGen"),
+    path("", views.home, name="home"),
+
 ]

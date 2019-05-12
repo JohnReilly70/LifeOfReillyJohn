@@ -1,0 +1,24 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container">
+	<h1>Password Generator</h1>
+	<form>
+		Password Length:<br>
+		<input type="number" name="characters" min="8" value="8"><br>
+		Number of Numbers:<br>
+		<input type="number" name="numbers" min="0" value="0"><br>
+		Number of Special Characters:<br>
+		<input type="number" name="special" min="0" value="0"><br>
+		<br>
+		<button type="button" id="PassGen">Generate</button><br>
+		
+		<h2>Password Generate:</h2><br>
+		<br><p id="Password"></p>
+</form>
+
+</div>
+
+<script src="{% static 'LifeOfReillyJohnApp/js/PassGen.js' %}"></script>
+{% endblock %}
