@@ -1,0 +1,37 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container">
+	<h1>Obviously It Is Mine</h1><br>
+	<h2>Personalised Decals</h2><br><br>
+	
+	<form action="">
+		<h3>Choose Your Font</h3><br>
+	  <select id="Fonts" name="fonts">
+	    <option value="Palace Script MT">Palace Script MT</option>
+	    <option value="Brush Script MT">Brush Script MT</option>
+		  <option value="Script MT Bold">Script MT Bold</option>
+	  </select><br>
+		<h3>Choose Your Message</h3><br>
+		<input type="text" name="user_input" id="UserInput">
+		<input id="FontSubmit" type="button" value="Submit">
+	</form>
+	
+	<h3>Your Personalised Message</h3><br>
+	<p id="UserOutput"> </p>
+</div>
+
+
+<script>
+	$(document).ready(function(){
+    $('#FontSubmit').click(function() {
+        var font_selected =  $("#Fonts :selected").val();
+        $('#UserOutput').css( "font-family", font_selected );
+        $('#UserOutput').text($("#UserInput").val());
+
+    });
+
+});
+</script>
+{% endblock %}

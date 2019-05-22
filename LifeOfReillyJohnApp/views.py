@@ -41,3 +41,7 @@ def PassGen(request):
                       template_name="LifeOfReillyJohnApp/PassGen.html",
                       context={})
 
+def FontGen(request):
+   return render(request=request,
+              template_name="LifeOfReillyJohnApp/FontGen.html",
+              )

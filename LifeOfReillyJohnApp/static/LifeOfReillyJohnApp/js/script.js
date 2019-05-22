@@ -37,6 +37,13 @@ $(document).ready(function(){
 
     });
 
+
+        $('#FontSubmit').click(function() {
+        var font_selected =  $("#Fonts :selected").val();
+        $('#UserOutput').css( "font-family", font_selected );
+        $('#UserOutput').text($("#UserInput").val());
+
+    });
 });
 
 

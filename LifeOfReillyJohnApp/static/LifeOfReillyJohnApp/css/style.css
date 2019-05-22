@@ -42,19 +42,20 @@ a.navbar-brand {
     padding: 0;
     margin-right:20px;
 }
+
+.dropdown-menu{
+}
+
+.dropdown-item a span{
+    display: inline;
+    border-bottom: 2px dotted black;
+}
+
+
 @media (min-width:641px) {
 .active {
    border-bottom: 2px solid black;
    transform: scale(1.25);
-}
-
-.dropdown-menu{
-    width: 200px;
-}
-
-.dropdown-menu a{
-    display: inline;
-    border-bottom: 2px dotted black;
 }
 
 
@@ -82,6 +83,12 @@ a.navbar-brand {
   z-index:5;
 }
 
+
+#UserOutput {
+ margin:0;
+ padding:0;
+    font-size: 10rem;
+}
 
 .footer {
     background-color: #28a745;
