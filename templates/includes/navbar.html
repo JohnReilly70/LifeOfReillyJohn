@@ -1,18 +1,55 @@
 {% load staticfiles %}
 
 
+<!--<div id="topheader" class="container fixed-top">-->
+	<!--<nav class="navbar navbar-expand-lg navbar-light bg-success">-->
+		<!--<a class="navbar-brand" href="/">Life Of Reilly John</a>-->
+		<!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
+			<!--<span class="navbar-toggler-icon"></span>-->
+		<!--</button>-->
+		<!--<div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
+			<!--<div class="navbar-nav ">-->
+					<!--<a class="nav-item nav-link nav-link-scroll" href="/#About-Me">Career</a>-->
+					<!--<a class="nav-item nav-link nav-link-scroll" href="/#Interests">Interests</a>-->
+					<!--<a class="nav-item nav-link" href="{% url 'LifeOfReillyJohnApp:PassGen' %}">Password Generator</a>-->
+					<!--<a class="nav-link dropdown-toggle " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			          <!--Dropdown link-->
+			        <!--</a>-->
+			        <!--<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">-->
+			          <!--<a class="dropdown-item" href="#">Action</a>-->
+			          <!--<a class="dropdown-item" href="#">Another action</a>-->
+			          <!--<a class="dropdown-item" href="#">Something else here</a>-->
+			        <!--</div>-->
+			<!--</div>-->
+			<!---->
+		<!--</div>-->
+	<!--</nav>-->
+<!--</div>-->
+
 <div id="topheader" class="container fixed-top">
 	<nav class="navbar navbar-expand-lg navbar-light bg-success">
-		<a class="navbar-brand" href="">Life Of Reilly John</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link nav-link-scroll" href="/#About-Me">Career</a>
-				<a class="nav-item nav-link nav-link-scroll" href="/#Interests">Interests</a>
-				<a class="nav-item nav-link" href="{% url 'LifeOfReillyJohnApp:PassGen' %}">Password Generator</a>
-			</div>
-		</div>
+	  <a class="navbar-brand" href="/">Life Of Reilly John</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-item nav-link nav-link-scroll" href="/#About-Me">Career</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-item nav-link nav-link-scroll" href="/#Interests">Interests</a>
+	      </li>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Project Ideas
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="nav-item nav-link" href="{% url 'LifeOfReillyJohnApp:PassGen' %}">Password Generator</a>
+		      <a class="nav-item nav-link" href="{% url 'LifeOfReillyJohnApp:PassGen' %}">Font Example</a>
+	        </div>
+	      </li>
+	    </ul>
+	  </div>
 	</nav>
 </div>

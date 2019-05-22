@@ -19,15 +19,13 @@ $(document).ready(function(){
 
     $(window).scroll(function(){
         var scrollbarLocation = $(this).scrollTop();
-        console.log(scrollbarLocation);
             scrollLink.each(function() {
 
       var sectionOffset = $(this.hash).offset().top - 400;
 
       if ( sectionOffset <= scrollbarLocation ) {
-
+        $( 'div .navbar-nav' ).find( 'a.active' ).removeClass( 'active' );
         $(this).addClass('active');
-        $(this).siblings().removeClass('active');
       }
 
        if ( scrollbarLocation < 150) {

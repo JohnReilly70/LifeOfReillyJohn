@@ -2,7 +2,12 @@
 
 $(document).ready(function(){
 
-    var scrollLink = $('.nav-link');
+    if ( window.location.pathname != '/' ){
+    // Index (home) page
+    return;
+}
+
+    var scrollLink = $('.nav-link-scroll');
 
     scrollLink.click(function(e) {
     e.preventDefault();

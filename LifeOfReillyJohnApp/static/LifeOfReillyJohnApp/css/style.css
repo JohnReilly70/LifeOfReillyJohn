@@ -48,8 +48,19 @@ a.navbar-brand {
    transform: scale(1.25);
 }
 
+.dropdown-menu{
+    width: 200px;
+}
+
+.dropdown-menu a{
+    display: inline;
+    border-bottom: 2px dotted black;
+}
+
+
 .active-border {
 }
+
 }
 .Home, .About-Me {
     padding-bottom:10px;
