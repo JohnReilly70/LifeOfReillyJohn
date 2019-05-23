@@ -3,10 +3,16 @@
 {% block content %}
 
 
-
-
-
-
+{% if SignUpValid%}
+<div class="container ">
+<div class="alert " role="alert">
+  <h4 class="alert-heading">Successfully Signed Up</h4>
+	<p>Aww yeah, you successfully signed up to the website, Welcome {{ SignUpValid.UserName }}!</p>
+	<p>You can now leave comments & view secret pages</p>
+	
+</div>
+</div>
+{% endif %}
 
 
 <div id="Home" class="container">

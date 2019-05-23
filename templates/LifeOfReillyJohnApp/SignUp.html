@@ -1,0 +1,31 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+
+
+
+
+<div class="container">
+	
+	<form  method="post">
+		{% csrf_token %}
+	{% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }}<br> {{ field }}
+	    {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+	    
+    </div>
+{% endfor %}
+	<button type="submit">Sign up</button><br>
+	</form>
+</div>
+
+
+{% endblock %}
