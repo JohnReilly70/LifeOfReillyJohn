@@ -14,12 +14,12 @@
 		  <option value="Script MT Bold">Script MT Bold</option>
 	  </select><br>
 		<h3>Choose Your Message</h3><br>
-		<input type="text" name="user_input" id="UserInput">
+		<input type="text" name="user_input" id="UserInput" maxlength="15">
 		<input id="FontSubmit" type="button" value="Submit">
 	</form>
 	
 	<h3>Your Personalised Message</h3><br>
-	<p id="UserOutput"> </p>
+	<p id="UserOutput"><br></p>
 </div>
 
 
@@ -27,11 +27,13 @@
 	$(document).ready(function(){
     $('#FontSubmit').click(function() {
         var font_selected =  $("#Fonts :selected").val();
-        $('#UserOutput').css( "font-family", font_selected );
         $('#UserOutput').text($("#UserInput").val());
-
+         document.getElementById("UserOutput").style.fontFamily = font_selected;
     });
 
 });
+
+
+
 </script>
 {% endblock %}
