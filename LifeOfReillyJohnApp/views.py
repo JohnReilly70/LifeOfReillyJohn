@@ -1,9 +1,10 @@
-from django.shortcuts import render
-from django.contrib.auth import login, authenticate, decorators
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, decorators, logout
 
 import string
 import random
-from .forms import SignUpForm
+from .forms import SignUpForm, LogInForm
 
 def home(request):
     return render(request=request,
@@ -50,33 +51,62 @@ def FontGen(request):
 
 
 def SignUp(request):
-
-    # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = SignUpForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            print("entered")
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
 
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+
             return render(request=request,
                       template_name="LifeOfReillyJohnApp/home.html",
                       context=({'SignUpValid': {'UserName': username}})
                       )
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = SignUpForm()
 
     return render(request=request,
                   template_name="LifeOfReillyJohnApp/SignUp.html",
                   context=({'form': form})
+                  )
+
+def LogIn(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return render(request=request,
+                              template_name="LifeOfReillyJohnApp/home.html",
+                              context=({})
+                              )
+            else:
+                form = AuthenticationForm()
+                return render(request=request,
+                              template_name="LifeOfReillyJohnApp/LogIn.html",
+                              context={"form": form,"error": True})
+        else:
+            form = AuthenticationForm()
+            return render(request=request,
+                          template_name="LifeOfReillyJohnApp/LogIn.html",
+                          context={"form": form,"error": True})
+    else:
+        form = AuthenticationForm()
+        return render(request=request,
+                  template_name="LifeOfReillyJohnApp/LogIn.html",
+                  context={"form": form})
+
+def LogOut(request):
+    logout(request)
+    return render(request=request,
+                  template_name="LifeOfReillyJohnApp/home.html",
+                  context=({})
                   )

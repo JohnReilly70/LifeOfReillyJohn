@@ -131,6 +131,8 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+LOGOUT_REDIRECT_URL = '/'
+
 
 TINYMCE_DEFAULT_CONFIG = {
     'height': 360,

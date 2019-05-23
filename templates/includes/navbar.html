@@ -22,9 +22,18 @@
 		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:PassGen' %}"><span>Password Generator</span></a>
 		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:FontGen' %}"><span>Personalised Message Design</span></a>
 	        </div>
+		    {% if user.is_authenticated %}
+          <li class="nav-item">
+	        <a class="nav-item nav-link " href="{% url 'LifeOfReillyJohnApp:LogOut' %}">Log Out</a>
+	      </li>
+		    {% else %}
 	      <li class="nav-item">
 	        <a class="nav-item nav-link " href="{% url 'LifeOfReillyJohnApp:SignUp' %}">Sign Up</a>
 	      </li>
+	      <li class="nav-item">
+	        <a class="nav-item nav-link " href="{% url 'LifeOfReillyJohnApp:LogIn' %}">Log In</a>
+	      </li>
+		    {% endif %}
 	      </li>
 	    </ul>
 	  </div>

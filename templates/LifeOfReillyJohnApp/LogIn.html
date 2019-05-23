@@ -5,15 +5,22 @@
 
 <script>
 	$(document).ready(function() {
-		$('.nav-item > a:contains("Sign Up")').addClass('active');
+		$('.nav-item > a:contains("Log In")').addClass('active');
 	});
 </script>
 
 
 <div class="container">
+	{% if error %}
+	<div class="container ">
+		<div class="alert " role="alert">
+			<h4 class="alert-heading">Failed To Sign In, Ensure You Are Using Correct Username & Password</h4>
+		</div>
+	</div>
+	{% endif %}
 	
 	<form  method="post">
-		{% csrf_token %}
+	{% csrf_token %}
 	{% for field in form %}
     <div class="fieldWrapper">
         {{ field.errors }}
@@ -27,7 +34,7 @@
 	    
     </div>
 {% endfor %}
-	<button type="submit" class="btn btn-outline-success">Sign up</button><br>
+	<br><button type="submit" class="btn btn-outline-success">Log In</button><br>
 	<p></p>
 	</form>
 </div>
