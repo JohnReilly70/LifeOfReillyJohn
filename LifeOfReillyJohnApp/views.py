@@ -1,10 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, decorators, logout
+from . import mail
 
+
+import logging
+import os
 import string
 import random
 from .forms import SignUpForm, LogInForm
+
+
+logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+
+
 
 def home(request):
     return render(request=request,
@@ -59,9 +69,13 @@ def SignUp(request):
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
-
+            raw_email = form.cleaned_data.get('email')
+            
+            
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            
+            mail.Sign_Up_Confirmation(raw_email, username)
 
             return render(request=request,
                       template_name="LifeOfReillyJohnApp/home.html",
