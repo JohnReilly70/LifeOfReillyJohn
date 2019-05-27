@@ -3,23 +3,27 @@
 {% block content %}
 
 <div class="container">
-	<h1>Obviously It Is Mine</h1><br>
-	<h2>Personalised Decals</h2><br><br>
-	
-	<form action="">
-		<h3>Choose Your Font</h3><br>
-	  <select id="Fonts" name="fonts">
-	    <option value="Palace Script MT">Palace Script MT</option>
-	    <option value="Brush Script MT">Brush Script MT</option>
-		  <option value="Script MT Bold">Script MT Bold</option>
-	  </select><br>
-		<h3>Choose Your Message</h3><br>
-		<input type="text" name="user_input" id="UserInput" maxlength="15">
-		<input id="FontSubmit" type="button" value="Submit">
-	</form>
-	
-	<h3>Your Personalised Message</h3><br>
-	<p id="UserOutput"><br></p>
+	<div class="row">
+		<div class="offset-md-1">
+			<h1>Obviously It Is Mine</h1><br>
+			<h2>Personalised Decals</h2><br><br>
+			
+			<form action="">
+				<h3>Choose Your Font</h3><br>
+			  <select id="Fonts" name="fonts">
+			    <option value="Palace Script MT">Palace Script MT</option>
+			    <option value="Brush Script MT">Brush Script MT</option>
+				  <option value="Script MT Bold">Script MT Bold</option>
+			  </select><br>
+				<h3>Choose Your Message</h3><br>
+				<input type="text" name="user_input" id="UserInput" maxlength="15">
+				<input id="FontSubmit" type="button" value="Submit">
+			</form>
+			
+			<h3>Your Personalised Message</h3><br>
+			<p id="UserOutput"><br></p>
+		</div>
+	</div>
 </div>
 
 

@@ -23,9 +23,15 @@
 		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:FontGen' %}"><span>Personalised Message Design</span></a>
 	        </div>
 		    {% if user.is_authenticated %}
-          <li class="nav-item">
-	        <a class="nav-item nav-link " href="{% url 'LifeOfReillyJohnApp:LogOut' %}">Log Out</a>
-	      </li>
+          <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          {{ user | title}}
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:LogOut' %}"><span>Account Info</span></a>
+		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:LogOut' %}"><span>Reset Password</span></a>
+		        <a class="nav-item nav-link dropdown-item" href="{% url 'LifeOfReillyJohnApp:LogOut' %}"><span>Log Out</span></a>
+	        </div>
 		    {% else %}
 	      <li class="nav-item">
 	        <a class="nav-item nav-link " href="{% url 'LifeOfReillyJohnApp:SignUp' %}">Sign Up</a>
