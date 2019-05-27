@@ -3,41 +3,51 @@
 {% block content %}
 
 <div class="container">
-	<h1>Password Generator</h1><br>
 	
-	<h3>Password Generator with Python</h3>
-	<form method="post" action="{% url 'LifeOfReillyJohnApp:PassGen' %}" >
-		{% csrf_token %}
-		Password Length:<br>
-		<input type="number" name="characters" min="8" value="8"><br>
-		Number of Numbers:<br>
-		<input type="number" name="numbers" min="0" value="0"><br>
-		Number of Special Characters:<br>
-		<input type="number" name="special" min="0" value="0"><br>
-		<br>
-		<button type="submit" id="Python">Generate</button><br>
-		
-		<h2 id="PythonPassGen">Password Generated:</h2><br>
-		
-		<br>{% if password %}<p>{{ password }}</p>{% endif %}
-		
-	</form><br>
-	
-	<h3>Password Generator with Jquery</h3>
-	<form>
-		Password Length:<br>
-		<input type="number" name="characters" min="8" value="8"><br>
-		Number of Numbers:<br>
-		<input type="number" name="numbers" min="0" value="0"><br>
-		Number of Special Characters:<br>
-		<input type="number" name="special" min="0" value="0"><br>
-		<br>
-		<button type="button" id="PassGen">Generate</button><br>
-		
-		<h2>Password Generated:</h2><br>
-		<br><p id="Password"></p>
-	</form><br>
-	
+	<div class="row">
+		<div class="col-12 offset-md-3">
+			<h1 class="align-center">Password Generator</h1><br><br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 offset-md-1">
+			
+			
+			<h3>Password Generator with Python</h3>
+			<form method="post" action="{% url 'LifeOfReillyJohnApp:PassGen' %}" >
+				{% csrf_token %}
+				Password Length:<br>
+				<input type="number" name="characters" min="8" value="8"><br>
+				Number of Numbers:<br>
+				<input type="number" name="numbers" min="0" value="0"><br>
+				Number of Special Characters:<br>
+				<input type="number" name="special" min="0" value="0"><br>
+				<br>
+				<button type="submit" id="Python">Generate</button><br>
+				
+				<h2 id="PythonPassGen">Password Generated:</h2><br>
+				
+				<br>{% if password %}<p>{{ password }}</p>{% endif %}
+				
+			</form><br>
+		</div>
+		<div class="col-md-4 offset-md-1">
+			<h3>Password Generator with Jquery</h3>
+			<form>
+				Password Length:<br>
+				<input type="number" name="characters" min="8" value="8"><br>
+				Number of Numbers:<br>
+				<input type="number" name="numbers" min="0" value="0"><br>
+				Number of Special Characters:<br>
+				<input type="number" name="special" min="0" value="0"><br>
+				<br>
+				<button type="button" id="PassGen">Generate</button><br>
+				
+				<h2>Password Generated:</h2><br>
+				<br><p id="Password"></p>
+			</form><br>
+		</div>
+	</div>
 </div>
 
 <script src="{% static 'LifeOfReillyJohnApp/js/PassGen.js' %}"></script>
