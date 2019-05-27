@@ -4,9 +4,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 
 
-def Sign_Up_Confirmation(sign_up_account, username):
+def Sign_Up_Confirmation(credentials, sign_up_account, username):
 
-    with open("credentials.txt") as file:
+    with open(credentials) as file:
         gmail_user = file.readline()
         gmail_password = file.readline()
 
