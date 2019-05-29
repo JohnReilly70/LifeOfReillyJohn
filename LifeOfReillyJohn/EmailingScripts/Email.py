@@ -2,13 +2,13 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
-
+import os
 
 def Sign_Up_Confirmation(credentials, sign_up_account, username):
 
     with open(credentials) as file:
-        gmail_user = file.readline()
-        gmail_password = file.readline()
+        gmail_user = os.getenv('GMAIL_USER')
+        gmail_password = os.getenv('GMAIL_PASSWORD')
 
     msg = MIMEMultipart('alternative')
     msg['From'] = gmail_user
