@@ -75,7 +75,7 @@ def SignUp(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             
-            Sign_Up_Confirmation("C:/Users/johnr/Desktop/pythonanywhere/LifeOfReillyJohn/LifeOfReillyJohnApp/credentials.txt",raw_email, username)
+            Sign_Up_Confirmation(raw_email, username)
 
             return render(request=request,
                       template_name="LifeOfReillyJohnApp/home.html",

@@ -4,11 +4,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 import os
 
-def Sign_Up_Confirmation(credentials, sign_up_account, username):
+def Sign_Up_Confirmation(sign_up_account, username):
 
-    with open(credentials) as file:
-        gmail_user = os.getenv('GMAIL_USER')
-        gmail_password = os.getenv('GMAIL_PASSWORD')
+    gmail_user = os.getenv('GMAIL_USER')
+    gmail_password = os.getenv('GMAIL_PASSWORD')
 
     msg = MIMEMultipart('alternative')
     msg['From'] = gmail_user
@@ -47,4 +46,3 @@ def Sign_Up_Confirmation(credentials, sign_up_account, username):
         print(e)
         print("failed to send mail")
     
-
