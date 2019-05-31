@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate, decorators, logout
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from LifeOfReillyJohn.EmailingScripts.Email import Sign_Up_Confirmation
 
 
 import logging
-import os
 import string
 import random
 from .forms import SignUpForm, LogInForm
@@ -123,4 +123,9 @@ def LogOut(request):
     return render(request=request,
                   template_name="LifeOfReillyJohnApp/home.html",
                   context=({})
+                  )
+@login_required
+def Profile(request):
+    return render(request=request,
+                  template_name="LifeOfReillyJohnApp/Profile.html",
                   )

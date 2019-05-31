@@ -1,0 +1,18 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="offset-md-1">
+			<h1 class="">Account Information Of  -  {{ user.username }}</h1><br>
+			<h4 class="">Your Account Details Are Shown Below</h4><br><br>
+			<p>Username:    {{ user.username }}</p>
+			<p>Email:   {{ user.email }}</p>
+			<p>First Name:  {{ user.first_name | capfirst  }}</p>
+			<p>Last Name:   {{ user.last_name | capfirst  }}</p>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

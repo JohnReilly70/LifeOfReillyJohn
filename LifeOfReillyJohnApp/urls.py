@@ -5,6 +5,7 @@ from . import views
 app_name = "LifeOfReillyJohnApp"
 
 urlpatterns = [
+    path("Profile/", views.Profile, name="Profile"),
     path("PassGen/", views.PassGen, name="PassGen"),
     path("FontGen/", views.FontGen, name="FontGen"),
     path("SignUp/", views.SignUp, name="SignUp"),

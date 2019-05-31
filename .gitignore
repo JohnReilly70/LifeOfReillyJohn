@@ -3,3 +3,4 @@ credentials.txt
 *.log
 *.pyc
 .idea
+__pycache__
