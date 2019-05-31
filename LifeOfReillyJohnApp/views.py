@@ -8,7 +8,7 @@ from LifeOfReillyJohn.EmailingScripts.Email import Sign_Up_Confirmation
 import logging
 import string
 import random
-from .forms import SignUpForm, LogInForm
+from .forms import SignUpForm
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -25,19 +25,19 @@ def home(request):
 def PassGen(request):
     if request.method == "POST":
         length = int(request.POST['characters'])
-        upper = int(request.POST['numbers'])
+        number = int(request.POST['numbers'])
         special = int(request.POST['special'])
 
-        if (upper+special) > length:
+        if (number+special) > length:
             p = "Password Length Must Be Greater Than Or Equal To Numbers & Special Characters Combined"
         else:
             p = []
-            for _ in range(upper):
-                p.extend(random.choice(string.ascii_uppercase))
+            for _ in range(number):
+                p.extend(str(random.randint(0, 9)))
             for _ in range(special):
                 p.extend(random.choice(string.punctuation))
-            for _ in range((length - upper - special)):
-                p.extend(random.choice(string.ascii_letters + string.digits + string.punctuation))
+            for _ in range((length - number - special)):
+                p.extend(random.choice(string.ascii_letters))
             random.shuffle(p)
             p = "".join(p)
 
