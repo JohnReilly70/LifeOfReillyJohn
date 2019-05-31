@@ -4,3 +4,4 @@ credentials.txt
 *.pyc
 .idea
 __pycache__
+pokemoncsv.py
