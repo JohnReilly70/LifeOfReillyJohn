@@ -3,12 +3,13 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from LifeOfReillyJohn.EmailingScripts.Email import Sign_Up_Confirmation
+from .forms import SignUpForm
+from .models import Pokemon
 
 
 import logging
 import string
 import random
-from .forms import SignUpForm
 
 
 logging.basicConfig(level=logging.DEBUG)
@@ -128,4 +129,10 @@ def LogOut(request):
 def Profile(request):
     return render(request=request,
                   template_name="LifeOfReillyJohnApp/Profile.html",
+                  )
+
+def PokemonTable(request):
+    return render(request=request,
+                  template_name="LifeOfReillyJohnApp/Pokemon.html",
+                  context={"PokemonList": Pokemon.objects.all()}
                   )

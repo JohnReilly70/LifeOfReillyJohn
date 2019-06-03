@@ -1,10 +1,10 @@
 $(document).ready(function(){
     $('#PassGen').click(function() {
-        var pass_len = $("input[name=characters]").val();
-        var numbers = $("input[name=numbers]").val();
-        var special = $("input[name=special]").val();
-        var both = parseInt(numbers)+parseInt(special);
 
+        var pass_len = $("#characters").val();
+        var numbers = $("#numbers").val();
+        var special = $("#special").val();
+        var both = parseInt(numbers)+parseInt(special);
 
         if ((numbers > pass_len) || (special > pass_len) || (both  > pass_len) ){
             $("#Password").text("Password Length Must Be Greater Than Or Equal To Numbers & Special Characters Combined");

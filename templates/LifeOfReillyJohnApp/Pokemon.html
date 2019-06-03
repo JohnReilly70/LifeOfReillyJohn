@@ -1,0 +1,47 @@
+{% extends "LifeOfReillyJohnApp/base.html" %}
+{% load staticfiles %}
+
+
+
+
+{% block content %}
+
+<div class="container">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="row">Poke Number</th>
+		<td>Name</td>
+		<td>Type1 </td>
+		<td>Type2 </td>
+		<td>HP </td>
+		<td>Attack </td>
+		<td>Defence </td>
+		<td>SPAttack </td>
+		<td>SPDefence </td>
+		<td>Speed </td>
+		<td>Generation </td>
+		<td>Legendary </td>
+    </tr>
+  <tbody>
+	</thead>
+	{% for Pokemon in PokemonList %}
+	<tr>
+	    <th scope="row">{{ Pokemon.Poke_Number }}</th>
+	    <td>{{ Pokemon.Name }}</td>
+	    <td>{{ Pokemon.Type1 }}</td>
+	    <td>{{ Pokemon.Type2 }}</td>
+	    <td>{{ Pokemon.HP }}</td>
+	    <td>{{ Pokemon.Attack }}</td>
+	    <td>{{ Pokemon.Defence }}</td>
+	    <td>{{ Pokemon.SPAttack }}</td>
+	    <td>{{ Pokemon.SPDefence }}</td>
+	    <td>{{ Pokemon.Speed }}</td>
+	    <td>{{ Pokemon.Generation }}</td>
+	    <td>{{ Pokemon.Legendary }}</td>
+    </tr>
+	{% endfor %}
+  </tbody>
+</table>
+	   </div>
+{% endblock %}
