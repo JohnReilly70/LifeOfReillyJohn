@@ -132,6 +132,20 @@ def Profile(request):
                   )
 
 def PokemonTable(request):
+    if request.method == 'POST':
+        search = request.POST['searchText'].capitalize()
+        
+        if not search or 'Clear' in request.POST:
+            return render(request=request,
+                          template_name="LifeOfReillyJohnApp/Pokemon.html",
+                          context={"PokemonList": Pokemon.objects.all()}
+                          )
+            
+        return render(request=request,
+                      template_name="LifeOfReillyJohnApp/Pokemon.html",
+                      context={"PokemonList": Pokemon.objects.filter(Name=search)}
+                      )
+
     return render(request=request,
                   template_name="LifeOfReillyJohnApp/Pokemon.html",
                   context={"PokemonList": Pokemon.objects.all()}

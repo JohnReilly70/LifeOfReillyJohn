@@ -5,12 +5,24 @@
 
 
 {% block content %}
-
+<div class="container">
+<div class="row">
+		<div class="col-md offset-md-1">
+			<form method="post" action="{% url 'LifeOfReillyJohnApp:Pokemon' %}" >
+				{% csrf_token %}
+				<input type="text" name="searchText" placeholder="Search The Database">
+				<button type="submit" id="SearchPokemon" class="btn btn-success">Search</button>
+				<button type="submit" id="Clear" class="btn btn-success">Clear</button>
+			</form>
+		</div>
+</div>
+	
+</div>
 <div class="container">
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="row">Poke Number</th>
+      <th scope="row">Pokedex Number</th>
 		<td>Name</td>
 		<td>Type1 </td>
 		<td>Type2 </td>
