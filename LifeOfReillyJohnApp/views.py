@@ -2,9 +2,13 @@ from django.shortcuts import render
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.utils.html import strip_tags
+from django import forms
+
 from LifeOfReillyJohn.EmailingScripts.Email import Sign_Up_Confirmation
-from .forms import SignUpForm
+from .forms import SignUpForm, PokemonDataBaseSearch
 from .models import Pokemon
+
 
 
 import logging
@@ -132,21 +136,70 @@ def Profile(request):
                   )
 
 def PokemonTable(request):
+    
+    
+    
     if request.method == 'POST':
-        search = request.POST['searchText'].capitalize()
+        
+        search = request.POST['search'].capitalize()
+        choice = request.POST['database_choice']
         
         if not search or 'Clear' in request.POST:
-            return render(request=request,
-                          template_name="LifeOfReillyJohnApp/Pokemon.html",
-                          context={"PokemonList": Pokemon.objects.all()}
-                          )
+            results = Pokemon.objects.all()
+
+        elif choice == 'Poke_Number':
+             results = Pokemon.objects.filter(Poke_Number=search)
+
+        elif choice == 'Name':
+            results = Pokemon.objects.filter(Name=search)
             
+        elif choice == 'Type1':
+            results = Pokemon.objects.filter(Type1=search)
+
+        elif choice == 'Type2':
+            results = Pokemon.objects.filter(Type2=search)
+            
+        elif choice == 'HP':
+            results = Pokemon.objects.filter(HP=search)
+            
+        elif choice == 'Attack':
+            results = Pokemon.objects.filter(Attack=search)
+            
+        elif choice == 'Defence':
+            results = Pokemon.objects.filter(HP=search)
+            
+        elif choice == 'SPAttack':
+            results = Pokemon.objects.filter(SPAttack=search)
+            
+        elif choice == 'SPDefence':
+            results = Pokemon.objects.filter(SPDefence=search)
+            
+        elif choice == 'Speed':
+            results = Pokemon.objects.filter(Speed=search)
+            
+        elif choice == 'Generation':
+            results = Pokemon.objects.filter(Generation=search)
+            
+        elif choice == 'Legendary':
+            results = Pokemon.objects.filter(Legendary=search)
+            
+        error = False
+        if not results:
+            error = True
         return render(request=request,
                       template_name="LifeOfReillyJohnApp/Pokemon.html",
-                      context={"PokemonList": Pokemon.objects.filter(Name=search)}
+                      context={"PokemonList": results,
+                               "PokemonDataBaseSearch": PokemonDataBaseSearch(),
+                               "error": error
+                               }
                       )
+        
+        
+
 
     return render(request=request,
                   template_name="LifeOfReillyJohnApp/Pokemon.html",
-                  context={"PokemonList": Pokemon.objects.all()}
+                  context={"PokemonList": Pokemon.objects.all(),
+                           "PokemonDataBaseSearch": PokemonDataBaseSearch,
+                           }
                   )
