@@ -5,9 +5,6 @@
 
 
 {% block content %}
-{% if choice %}
-<h1>{{ choice }}</h1>
-{% endif %}
 
 <div class="container">
 	<div class="row">
@@ -27,7 +24,8 @@
 
 <div class="container"><br>
 	{% if error %}
-	<h3> No Results Found For That Search</h3>
+	<h3> No Results Found For That Search</h3><br>
+	<p>Ensure your input is correct for the category selected.</p>
 	{% endif %}
 </div><br>
 
