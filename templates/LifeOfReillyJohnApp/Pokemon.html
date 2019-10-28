@@ -8,6 +8,39 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col-md offset-md-1">
+<!--			<p>You can now use the following operators on number columns i.e. HP,Attack,Defence....</p>-->
+<!--			<p>Operators are = (equal), > (greater than), < (less than), => (greater than or equal to), =< (less than or equal to)</p>-->
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+			  Database Update - Operators Now Available
+			</button>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Update - Operators</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+				      <p>You can now use the following operators on number columns i.e. Pokedex Number,HP,Attack,Defence....</p>
+				      <p>Operators:<br>= (equal)<br>> (greater than)<br>< (less than)<br>=> (greater than or equal to)<br>=< (less than or equal to)</p>
+				      <p>Example:<br>"=<5" for a search on Pokedex Number will give you all the following pokemon<br>Bulbasaur, Ivysaur, Venusaur, Charmander, Charmeleon</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
 			<div class="col-md offset-md-1">
 				<form method="post" action="{% url 'LifeOfReillyJohnApp:Pokemon' %}" >
 					{% for field in PokemonDataBaseSearch %}
@@ -26,6 +59,9 @@
 	{% if error %}
 	<h3> No Results Found For That Search</h3><br>
 	<p>Ensure your input is correct for the category selected.</p>
+	{% endif %}
+	{% if results %}
+	<h3>results</h3>
 	{% endif %}
 </div><br>
 

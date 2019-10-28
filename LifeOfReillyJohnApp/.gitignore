@@ -2,3 +2,4 @@ credentials.txt
 *.log
 *.pyc
 __pycache__
+JR_Test*

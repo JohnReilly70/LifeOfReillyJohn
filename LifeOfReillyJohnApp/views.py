@@ -12,6 +12,7 @@ from .models import Pokemon
 import logging
 import string
 import random
+import re
 
 logging.basicConfig(level=logging.DEBUG)
 logging.basicConfig(filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
@@ -137,8 +138,6 @@ def PokemonTable(request):
 		
 		search = request.POST['search'].capitalize()
 		choice = request.POST['database_choice']
-		results = ""
-		
 		
 		try:
 			error = False
@@ -146,9 +145,6 @@ def PokemonTable(request):
 			
 			if not search or 'Clear' in request.POST:
 				results = Pokemon.objects.all()
-			
-			elif choice == 'Poke_Number':
-					results = Pokemon.objects.filter(Poke_Number=search)
 			
 			elif choice == 'Name':
 				results = Pokemon.objects.filter(Name=search)
@@ -159,29 +155,110 @@ def PokemonTable(request):
 			elif choice == 'Type2':
 				results = Pokemon.objects.filter(Type2=search)
 			
-			elif choice == 'HP':
-				results = Pokemon.objects.filter(HP=search)
-			
-			elif choice == 'Attack':
-				results = Pokemon.objects.filter(Attack=search)
-			
-			elif choice == 'Defence':
-				results = Pokemon.objects.filter(HP=search)
-			
-			elif choice == 'SPAttack':
-				results = Pokemon.objects.filter(SPAttack=search)
-			
-			elif choice == 'SPDefence':
-				results = Pokemon.objects.filter(SPDefence=search)
-			
-			elif choice == 'Speed':
-				results = Pokemon.objects.filter(Speed=search)
-			
-			elif choice == 'Generation':
-				results = Pokemon.objects.filter(Generation=search)
-			
 			elif choice == 'Legendary':
 				results = Pokemon.objects.filter(Legendary=search)
+			
+			else:
+				
+				regex = r'^(?P<operator>=|=>|=<|>|<)?\s*(?P<integer>\d+)'
+				re_result = re.match(regex, search)
+				operator, search = re_result[1], int(re_result[2])
+				
+				if choice == 'Poke_Number':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(Poke_Number=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(Poke_Number__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(Poke_Number__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(Poke_Number__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(Poke_Number__gt=search)
+				
+				elif choice == 'HP':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(HP=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(HP__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(HP__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(HP__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(HP__gt=search)
+				
+				elif choice == 'Attack':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(Attack=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(Attack__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(Attack__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(Attack__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(Attack__gt=search)
+				
+				elif choice == 'Defence':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(Defence=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(Defence__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(Defence__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(Defence__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(Defence__gt=search)
+				
+				elif choice == 'SPAttack':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(SPAttack=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(SPAttack__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(SPAttack__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(SPAttack__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(SPAttack__gt=search)
+				
+				elif choice == 'SPDefence':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(SPDefence=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(SPDefence__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(SPDefence__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(SPDefence__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(SPDefence__gt=search)
+				
+				elif choice == 'Speed':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(Speed=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(Speed__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(Speed__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(Speed__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(Speed__gt=search)
+				
+				elif choice == 'Generation':
+					if operator == '=' or operator == None:
+						results = Pokemon.objects.filter(Generation=search)
+					elif operator == '=>':
+						results = Pokemon.objects.filter(Generation__gte=search)
+					elif operator == '=<':
+						results = Pokemon.objects.filter(Generation__lte=search)
+					elif operator == '<':
+						results = Pokemon.objects.filter(Generation__lt=search)
+					elif operator == '>':
+						results = Pokemon.objects.filter(Generation__gt=search)
 			
 			if not results:
 				error = True
@@ -207,4 +284,22 @@ def PokemonTable(request):
 	              context={"PokemonList": Pokemon.objects.all(),
 	                       "PokemonDataBaseSearch": PokemonDataBaseSearch,
 	                       }
+	              )
+
+
+def Graphs(request):
+	gen1 = len(Pokemon.objects.filter(Generation=1))
+	gen2 = len(Pokemon.objects.filter(Generation=2))
+	gen3 = len(Pokemon.objects.filter(Generation=3))
+	gen4 = len(Pokemon.objects.filter(Generation=4))
+	gen5 = len(Pokemon.objects.filter(Generation=5))
+	gen6 = len(Pokemon.objects.filter(Generation=6))
+	return render(request=request,
+	              template_name="LifeOfReillyJohnApp/Graphs.html",
+	              context={"gen1": gen1,
+	                       "gen2": gen2,
+	                       "gen3": gen3,
+	                       "gen4": gen4,
+	                       "gen5": gen5,
+	                       "gen6": gen6, }
 	              )

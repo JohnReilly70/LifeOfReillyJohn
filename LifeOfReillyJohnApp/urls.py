@@ -9,6 +9,7 @@ urlpatterns = [
     path("PassGen/", views.PassGen, name="PassGen"),
     path("FontGen/", views.FontGen, name="FontGen"),
     path("Pokemon/", views.PokemonTable, name="Pokemon"),
+    path("Graphs/", views.Graphs, name="Graphs"),
     path("SignUp/", views.SignUp, name="SignUp"),
     path("LogOut/", views.LogOut, name="LogOut"),
     path("LogIn/", views.LogIn, name="LogIn"),
